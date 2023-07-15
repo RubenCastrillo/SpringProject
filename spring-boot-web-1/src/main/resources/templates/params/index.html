@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelead.org">
+	<head>
+	<meta charset="UTF-8">
+	<title>Enviar parametros</title>
+	</head>
+	<body>
+		<h1>Enviar parámetros del Request HTTP GET - URL</h1>
+		<li>
+			<a th:href="@{/params/string(texto='Hola Ruben')}">/params/string?texto=Hola Ruben</a>
+		</li>
+		<li>
+			<a th:href="@{/params/mix-params-request(texto='Hola Ruben',numero=7)}">/params/mix-params?texto=Hola Ruben</a>
+		</li>
+
+	</body>
+</html>

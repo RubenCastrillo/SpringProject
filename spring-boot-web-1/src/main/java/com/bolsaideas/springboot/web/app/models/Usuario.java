@@ -3,6 +3,7 @@ package com.bolsaideas.springboot.web.app.models;
 public class Usuario {
 	private String nombre;
 	private String apellido;
+	private String email;
 	
 	public Usuario(String nombre,String apellido) {
 	this.nombre = nombre;
@@ -20,6 +21,14 @@ public class Usuario {
 	}
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }

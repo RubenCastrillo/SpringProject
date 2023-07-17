@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,11 @@ import com.bolsaideas.springboot.web.app.models.Usuario;
 @RequestMapping("/app")
 public class IndexController {
 
+	@Value("${texto.indexcontroller.index.titulo}")
+	private String textoIndex;
+	
+	@Value("${texto.indexcontroller.perfil.titulo}")
+	private String textoperfil;
 	//nombre de la vista que queremos mostrar o cargar
 	//@RequestMapping(value="/index",method =RequestMethod.GET) //si no se indica nada es GET
 	
@@ -26,7 +32,7 @@ public class IndexController {
 //	
 	@GetMapping({"/index","/","/home"})
 	public String index(Map<String,Object> map) {
-		map.put("titulo","hola Spring Framework");
+		map.put("titulo",textoIndex);
 		return "index";
 	}
 	
@@ -36,7 +42,7 @@ public class IndexController {
 		Usuario usuario = new Usuario("Ruben","Castrillo");
 		usuario.setEmail("prueba@email.com");
 		model.addAttribute("usuario", usuario);
-		model.addAttribute("titulo", "Perfil de usuario ");
+		model.addAttribute("titulo", textoperfil);
 		return "perfil";
 	}
 	
